@@ -1,3 +1,10 @@
+/*
+ * Created by YSN Studio on 6/1/18 5:30 AM
+ * Copyright (c) 2018. All rights reserved.
+ *
+ * Last modified 5/24/18 1:20 PM
+ */
+
 package com.ysn.simpleviewmodel;
 
 import android.content.Context;

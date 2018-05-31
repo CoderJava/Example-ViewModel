@@ -1,3 +1,10 @@
+<!--
+  ~ Created by YSN Studio on 6/1/18 5:30 AM
+  ~ Copyright (c) 2018. All rights reserved.
+  ~
+  ~ Last modified 6/1/18 4:53 AM
+  -->
+
 <resources>
     <string name="app_name">ConstraintLayout</string>
     <string name="hello_constraintlayout">Hello</string>
