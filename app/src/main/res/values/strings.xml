@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ConstraintLayout</string>
+    <string name="hello_constraintlayout">Hello</string>
+    <string name="address">Address</string>
+    <string name="_0">0</string>
+    <string name="increment">Increment</string>
+</resources>
