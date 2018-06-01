@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Created by YSN Studio on 6/1/18 11:50 AM
+  ~ Created by YSN Studio on 6/2/18 2:20 AM
   ~ Copyright (c) 2018. All rights reserved.
   ~
-  ~ Last modified 6/1/18 11:32 AM
+  ~ Last modified 6/2/18 1:33 AM
   -->
 
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -20,9 +20,46 @@
         android:id="@+id/text_view_timer_value_activity_demo_live_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/_0"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_view_second_timer_value_activity_demo_live_data"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:gravity="center_horizontal"
+        android:text="0 second"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/text_view_minute_timer_value_activity_demo_live_data"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_timer_value_activity_demo_live_data" />
+
+    <TextView
+        android:id="@+id/text_view_minute_timer_value_activity_demo_live_data"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="0 minute"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text_view_second_timer_value_activity_demo_live_data"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/text_view_hour_timer_value_activity_demo_live_data"
+        app:layout_constraintStart_toEndOf="@+id/text_view_second_timer_value_activity_demo_live_data" />
+
+    <TextView
+        android:id="@+id/text_view_hour_timer_value_activity_demo_live_data"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="0 hour"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text_view_second_timer_value_activity_demo_live_data"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_view_minute_timer_value_activity_demo_live_data" />
 
 </android.support.constraint.ConstraintLayout>
