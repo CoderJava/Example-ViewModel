@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Created by YSN Studio on 6/1/18 5:30 AM
+  ~ Created by YSN Studio on 6/1/18 11:48 AM
   ~ Copyright (c) 2018. All rights reserved.
   ~
-  ~ Last modified 6/1/18 5:19 AM
+  ~ Last modified 6/1/18 11:24 AM
   -->
 
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -14,11 +14,11 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity">
+    tools:context=".viewmodel.DemoViewModelActivity">
 
 
     <TextView
-        android:id="@+id/text_view_count_activity_main"
+        android:id="@+id/text_view_count_activity_demo_view_model"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_0"
@@ -29,23 +29,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_increment_activity_main"
+        android:id="@+id/button_increment_activity_demo_view_model"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:text="@string/increment"
-        app:layout_constraintBottom_toTopOf="@+id/text_view_count_activity_main"
+        app:layout_constraintBottom_toTopOf="@+id/text_view_count_activity_demo_view_model"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button_decrement_activity_main"
+        android:id="@+id/button_decrement_activity_demo_view_model"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:text="@string/decrement"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_count_activity_main" />
+        app:layout_constraintTop_toBottomOf="@+id/text_view_count_activity_demo_view_model" />
 
 </android.support.constraint.ConstraintLayout>
