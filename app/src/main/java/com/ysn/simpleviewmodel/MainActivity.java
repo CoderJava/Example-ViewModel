@@ -1,8 +1,8 @@
 /*
- * Created by YSN Studio on 6/1/18 5:30 AM
+ * Created by YSN Studio on 6/1/18 11:18 AM
  * Copyright (c) 2018. All rights reserved.
  *
- * Last modified 6/1/18 5:20 AM
+ * Last modified 6/1/18 11:16 AM
  */
 
 package com.ysn.simpleviewmodel;
@@ -30,7 +30,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        clickCounterViewModel = ViewModelProviders.of(this).get(ClickCounterViewModel.class);
+        // The factory and its dependencies instead should be injected with DI framework like Dagger
+        LoggingClickCounterViewModelFactory factory = new LoggingClickCounterViewModelFactory(new ClickLoggingInterceptor());
+        clickCounterViewModel = ViewModelProviders.of(this, factory)
+                .get(LoggingClickCounterViewModel.class);
         displayClickCount();
     }
 
