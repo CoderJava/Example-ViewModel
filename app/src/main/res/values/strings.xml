@@ -1,8 +1,8 @@
 <!--
-  ~ Created by YSN Studio on 6/1/18 5:30 AM
+  ~ Created by YSN Studio on 6/1/18 11:50 AM
   ~ Copyright (c) 2018. All rights reserved.
   ~
-  ~ Last modified 6/1/18 4:53 AM
+  ~ Last modified 6/1/18 11:45 AM
   -->
 
 <resources>
@@ -12,4 +12,5 @@
     <string name="_0">0</string>
     <string name="increment">Increment</string>
     <string name="decrement">Decrement</string>
+    <string name="seconds">%d seconds elapsed</string>
 </resources>
