@@ -1,8 +1,8 @@
 /*
- * Created by YSN Studio on 6/1/18 11:50 AM
+ * Created by YSN Studio on 6/2/18 2:20 AM
  * Copyright (c) 2018. All rights reserved.
  *
- * Last modified 6/1/18 11:41 AM
+ * Last modified 6/2/18 2:10 AM
  */
 
 package com.ysn.simpleviewmodel.livedata;
@@ -24,18 +24,16 @@ public class DemoLiveDataActivity extends AppCompatActivity {
 
     private static final String TAG = DemoLiveDataActivity.class.getSimpleName();
     private LiveDataTimerViewModel liveDataTimerViewModel;
-
-    private final Observer<Long> elapsedTimeObserver = new Observer<Long>() {
-        @Override
-        public void onChanged(@Nullable Long newValue) {
-            String newText = getResources().getString(R.string.seconds, newValue);
-            displayTimerValue(newText);
-            Log.d(TAG, "Updating timer");
-        }
-    };
+    private LiveDataFormatTimerViewModel liveDataFormatTimerViewModel;
 
     @BindView(R.id.text_view_timer_value_activity_demo_live_data)
-    TextView textViewTimerValueText;
+    TextView textViewTimerValue;
+    @BindView(R.id.text_view_second_timer_value_activity_demo_live_data)
+    TextView textViewSecondTimerValue;
+    @BindView(R.id.text_view_minute_timer_value_activity_demo_live_data)
+    TextView textViewMinuteTimerValue;
+    @BindView(R.id.text_view_hour_timer_value_activity_demo_live_data)
+    TextView textViewHourTimerValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,15 +42,41 @@ public class DemoLiveDataActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         liveDataTimerViewModel = ViewModelProviders.of(this).get(LiveDataTimerViewModel.class);
+        liveDataFormatTimerViewModel = ViewModelProviders.of(this).get(LiveDataFormatTimerViewModel.class);
         subscribeElapsedTimeObserver();
     }
 
     private void subscribeElapsedTimeObserver() {
-        liveDataTimerViewModel.getElapsedTime().observe(this, elapsedTimeObserver);
+        liveDataTimerViewModel.getElapsedTime().observe(this, new Observer<Long>() {
+            @Override
+            public void onChanged(@Nullable Long newValue) {
+                String newText = getString(R.string.elapsed_time_format, newValue);
+                displayTimerValue(newText);
+                liveDataFormatTimerViewModel.setInitialTime(newValue);
+                Log.d(TAG, "Updating timer");
+            }
+        });
+
+        liveDataFormatTimerViewModel.getFormatElapsedTime().observe(this, new Observer<FormatTimerViewModel>() {
+            @Override
+            public void onChanged(@Nullable FormatTimerViewModel formatTimerViewModel) {
+                int second = formatTimerViewModel.getSecond();
+                int minute = formatTimerViewModel.getMinute();
+                int hour = formatTimerViewModel.getHour();
+                displayFormatTimerValue(second, minute, hour);
+                Log.d(TAG, "Updating format timer");
+            }
+        });
     }
 
     private void displayTimerValue(String value) {
-        textViewTimerValueText.setText(String.valueOf(value));
+        textViewTimerValue.setText(String.valueOf(value));
+    }
+
+    private void displayFormatTimerValue(int second, int minute, int hour) {
+        textViewSecondTimerValue.setText(getString(R.string.second_format, second));
+        textViewMinuteTimerValue.setText(getString(R.string.minute_format, minute));
+        textViewHourTimerValue.setText(getString(R.string.hour_format, hour));
     }
 
 }

@@ -1,8 +1,8 @@
 /*
- * Created by YSN Studio on 6/1/18 11:50 AM
+ * Created by YSN Studio on 6/2/18 2:20 AM
  * Copyright (c) 2018. All rights reserved.
  *
- * Last modified 6/1/18 11:30 AM
+ * Last modified 6/2/18 2:18 AM
  */
 
 package com.ysn.simpleviewmodel.livedata;
@@ -37,6 +37,7 @@ public class LiveDataTimerViewModel extends ViewModel {
                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                     @Override
                     public void run() {
+                        // It's mainThread
                         elapsedTime.setValue(newValue);
                     }
                 });
