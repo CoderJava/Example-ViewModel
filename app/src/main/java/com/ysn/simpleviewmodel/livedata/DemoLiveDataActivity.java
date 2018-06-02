@@ -1,8 +1,8 @@
 /*
- * Created by YSN Studio on 6/2/18 2:20 AM
+ * Created by YSN Studio on 6/2/18 7:28 PM
  * Copyright (c) 2018. All rights reserved.
  *
- * Last modified 6/2/18 2:10 AM
+ * Last modified 6/2/18 7:27 PM
  */
 
 package com.ysn.simpleviewmodel.livedata;
@@ -40,6 +40,14 @@ public class DemoLiveDataActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo_live_data);
         ButterKnife.bind(this);
+        // if external class Observer
+        getLifecycle().addObserver(new MyObserver());
+
+        // if internal of LifecycleOwner
+        /*getLifecycle().addObserver(this);*/
+
+        // to get current state lifecycle
+        /*getLifecycle().getCurrentState();*/
 
         liveDataTimerViewModel = ViewModelProviders.of(this).get(LiveDataTimerViewModel.class);
         liveDataFormatTimerViewModel = ViewModelProviders.of(this).get(LiveDataFormatTimerViewModel.class);
